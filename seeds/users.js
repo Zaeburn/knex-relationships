@@ -29,6 +29,6 @@ exports.seed = function (knex, Promise) {
         {id: 99925, name: 'Yielding Yak', email: 'yak@example.org'},
         {id: 99926, name: 'Zaftig Zebu', email: 'zebu@example.org'}
       ]
-    )})
+      )
+    })
 }
-

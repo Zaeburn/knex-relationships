@@ -16,13 +16,25 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/profile/:id', (req, res) => {
+/* router.get('/profile/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getUser(id)
     .then(user => {
       console.log('user: ', user)
       console.log('userViewData: ', {user: user})
       res.render('profile', user)
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+}) */
+
+router.get('/profile/:id', (req, res) => {
+  const id = Number(req.params.id)
+  db.getProfile(id)
+    .then(profile => {
+      console.log(profile)
+      res.render('profile', profile)
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)

@@ -22,10 +22,13 @@ function getProfile (id, conn = connection) {
   return conn('profiles')
     .join('users', 'users.id', '=', 'profiles.user_id')
     .select(
-      'profiles.user_id as profileUserID',
+      'users.name as name',
+      'profiles.user_id as profileUserId',
       'profiles.website_url as webSiteUrl',
       'profiles.avatar_url as avatarUrl',
       'profiles.age',
       'profiles.location'
     )
+    .where('profiles.user_id', id)
+    .first()
 }

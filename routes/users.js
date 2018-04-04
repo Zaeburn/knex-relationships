@@ -7,8 +7,6 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getUsers()
     .then(users => {
-      console.log('users: ', users)
-      console.log('usersViewData: ', {users: users})
       res.render('index', { users: users })
     })
     .catch(err => {
